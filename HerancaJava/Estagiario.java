@@ -1,5 +1,5 @@
 public class Estagiario extends Funcionario {
-    public Estagiario(String Nome, Double Salario, String Departamento, int DataDeNascimento, int CPF) {
+    public Estagiario(String Nome, Double Salario, String Departamento, String DataDeNascimento, String CPF) {
         super(Nome, Salario, Departamento, DataDeNascimento, CPF);
     }
 
