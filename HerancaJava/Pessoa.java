@@ -1,8 +1,8 @@
 public class Pessoa {
-    private int DataDeNascimento;
-    private int CPF;
+    private String DataDeNascimento;
+    private String CPF;
 
-    public Pessoa(int DataDeNascimento, int CPF) {
+    public Pessoa(String DataDeNascimento, String CPF) {
         this.DataDeNascimento = DataDeNascimento;
         this.CPF = CPF;
     }
@@ -11,20 +11,20 @@ public class Pessoa {
     public Pessoa(){}
 
     //Método GET
-    public int getDataDeNascimento(){
+    public String getDataDeNascimento(){
         return DataDeNascimento;
     }
 
-    public int getCPF(){
+    public String getCPF(){
         return CPF;
     }
 
     //Método SET
-    public void setDataDeNascimento(int DataDeNascimento){
+    public void setDataDeNascimento(String DataDeNascimento){
         this.DataDeNascimento = DataDeNascimento;
     }
 
-    public void setCPF(int CPF){
+    public void setCPF(String CPF){
         this.CPF = CPF;
     }
 }
