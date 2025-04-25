@@ -3,7 +3,7 @@ public class Funcionario extends Pessoa {
     private Double Salario;
     private String Departamento;
 
-    public Funcionario(String Nome, Double Salario, String Departamento, int DataDeNascimento, int CPF) {
+    public Funcionario(String Nome, Double Salario, String Departamento, String DataDeNascimento, String CPF) {
         super(DataDeNascimento, CPF); // Chama o construtor da classe pai (Pessoa)
         this.Nome = Nome;
         this.Salario = Salario;
@@ -31,11 +31,11 @@ public class Funcionario extends Pessoa {
         this.Nome = Nome;
     }
 
-    public void setIdade(Double Salario){
+    public void setSalario(Double Salario){
         this.Salario = Salario;
     }
 
-    public void setEmail(String Departamento){
+    public void setDepartamento(String Departamento){
         this.Departamento = Departamento;
     }
 
