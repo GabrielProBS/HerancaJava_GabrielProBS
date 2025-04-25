@@ -11,7 +11,8 @@ public class Main {
             System.out.println("Escolha uma opção:");
             System.out.println("1- Cadastrar funcionário");
             System.out.println("2- Exibir dados do funcionário");
-            System.out.println("3 - Sair");
+            System.out.println("3- Tarefas dos funcionários");
+            System.out.println("4 - Sair");
 
             op = scanner.nextInt();
             scanner.nextLine();
@@ -25,6 +26,8 @@ public class Main {
                     System.out.println("3 - Desenvolvedor");
                     escolha = scanner.nextInt();
                     scanner.nextLine();
+
+                    // Cadastro de funcionários (Gerente, Estagiário ou Desenvolvedor)
                     if (escolha == 1) {
                         // Criação do objeto Gerente
                         System.out.println("Digite o nome do gerente:");
@@ -34,13 +37,13 @@ public class Main {
                         scanner.nextLine();
                         System.out.println("Digite o departamento do gerente:");
                         String departamento = scanner.nextLine();
-                        System.out.println("Digite a data de nascimento do gerente:");
-                        int dataDeNascimento = scanner.nextInt();
-                        System.out.println("Digite o CPF do gerente:");
-                        int cpf = scanner.nextInt();
+                        System.out.println("Digite a data de nascimento do gerente (Ex.:22/01/2000):");
+                        String dataDeNascimento = scanner.nextLine();
+                        System.out.println("Digite o CPF do gerente (Ex.: 123.456.789-01):");
+                        String cpf = scanner.nextLine();
                         Gerente.setNome(nome);
-                        Gerente.setIdade(salario);
-                        Gerente.setEmail(departamento);
+                        Gerente.setSalario(salario);
+                        Gerente.setDepartamento(departamento);
                         Gerente.setDataDeNascimento(dataDeNascimento);
                         Gerente.setCPF(cpf);
                     } else if (escolha == 2) {
@@ -52,13 +55,13 @@ public class Main {
                         scanner.nextLine();
                         System.out.println("Digite o departamento do estagiário:");
                         String departamento = scanner.nextLine();
-                        System.out.println("Digite a data de nascimento do estagiário:");
-                        int dataDeNascimento = scanner.nextInt();
-                        System.out.println("Digite o CPF do estagiário:");
-                        int cpf = scanner.nextInt();
+                        System.out.println("Digite a data de nascimento do estagiário (Ex.:22/01/2000):");
+                        String dataDeNascimento = scanner.nextLine();
+                        System.out.println("Digite o CPF do estagiário (Ex.: 123.456.789-01):");
+                        String cpf = scanner.nextLine();
                         Estagiario.setNome(nome);
-                        Estagiario.setIdade(salario);
-                        Estagiario.setEmail(departamento);
+                        Estagiario.setSalario(salario);
+                        Estagiario.setDepartamento(departamento);
                         Estagiario.setDataDeNascimento(dataDeNascimento);
                         Estagiario.setCPF(cpf);
                     } else if (escolha == 3) {
@@ -70,16 +73,53 @@ public class Main {
                         scanner.nextLine();
                         System.out.println("Digite o departamento do desenvolvedor:");
                         String departamento = scanner.nextLine();
+                        System.out.println("Digite a data de nascimento do desenvolvedor (Ex.:22/01/2000):");
+                        String dataDeNascimento = scanner.nextLine();
+                        System.out.println("Digite o CPF do desenvolvedor (Ex.: 123.456.789-01):");
+                        String cpf = scanner.nextLine();
                         Desenvolvedor.setNome(nome);
-                        Desenvolvedor.setIdade(salario);
-                        Desenvolvedor.setEmail(departamento);
+                        Desenvolvedor.setSalario(salario);
+                        Desenvolvedor.setDepartamento(departamento);
+                        Desenvolvedor.setDataDeNascimento(dataDeNascimento);
+                        Desenvolvedor.setCPF(cpf);
                     } else {
                         System.out.println("Opção inválida.");
                     }
                     break;
 
+                // Exibir dados do funcionário
                 case 2:
-                    // Exibir dados do funcionário
+                    System.out.println("Escolha o tipo de funcionário:");
+                    System.out.println("1 - Gerente");
+                    System.out.println("2 - Estagiário");
+                    System.out.println("3 - Desenvolvedor");
+                    escolha = scanner.nextInt();
+                    scanner.nextLine();
+                    // Irá verificar se há algum funcionário cadastrado, caso tenha, irá exibir os dados do funcionário
+                    //Gerente
+                    if (Gerente == null) {
+                        System.out.println("Nenhum funcionário cadastrado.");
+                    } else if (escolha == 1) {
+                        Gerente.MostrarDados();
+                    } 
+                    //Estagiário
+                    else if (Estagiario == null) {
+                        System.out.println("Nenhum funcionário cadastrado.");
+                    } else if (escolha == 2) {
+                        Estagiario.MostrarDados();
+                    }
+                    //Desenvolvedor
+                    else if (Desenvolvedor == null) {
+                        System.out.println("Nenhum funcionário cadastrado.");
+                    } else if (escolha == 3) {
+                        Desenvolvedor.MostrarDados();
+                    } else {
+                        System.out.println("Opção inválida.");
+                    }
+                    break;
+                
+                // Tarefas dos funcionários
+                case 3:
                     System.out.println("Escolha o tipo de funcionário:");
                     System.out.println("1 - Gerente");
                     System.out.println("2 - Estagiário");
@@ -87,22 +127,25 @@ public class Main {
                     escolha = scanner.nextInt();
                     scanner.nextLine();
                     if (escolha == 1) {
-                        Gerente.MostrarDados();
+                        Gerente.RealizarReuniao();
                     } else if (escolha == 2) {
-                        Estagiario.MostrarDados();
+                        Estagiario.FazerTarefa();
                     } else if (escolha == 3) {
-                        Desenvolvedor.MostrarDados();
+                        Desenvolvedor.Programar();
                     } else {
                         System.out.println("Opção inválida.");
                     }
                     break;
-                case 3:
+                
+                // Sair do programa
+                case 4:
                     System.out.println("Saindo...");
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
+                    break;
             }
-        } while (op != 3);
+        } while (op != 4);
         scanner.close();
             
     }
