@@ -1,5 +1,5 @@
 public class Gerente extends Funcionario {
-    public Gerente(String Nome, Double Salario, String Departamento, int DataDeNascimento, int CPF) {
+    public Gerente(String Nome, Double Salario, String Departamento, String DataDeNascimento, String CPF) {
         super(Nome, Salario, Departamento, DataDeNascimento, CPF);
     }
 
